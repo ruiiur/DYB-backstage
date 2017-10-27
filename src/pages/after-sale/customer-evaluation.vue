@@ -69,17 +69,44 @@
         <ul>
           <li>
             <label>优惠劵名称</label>
-            <Input placeholder="老香港蛋糕（安亭店）优惠券" ></Input>
+            <Input value="老香港蛋糕（安亭店）优惠券" ></Input>
           </li>
           <li>
-            <label>员工密码</label>
+            <label>优惠劵金额</label>
             <Input placeholder="请输入密码" ></Input>
+            <span>元</span>
           </li>
           <li>
-            <label>员工姓名</label>
-            <Input placeholder="请输入姓名" ></Input>
+            <label>使用门槛  <em>满</em></label>
+            <Input placeholder="请输入金额" ></Input>
+            <span>元可用</span>
+          </li>
+          <li>
+            <label>优惠劵有效期<em>发券之日起</em></label>
+            <Select  style="width:200px">
+              <Option v-for="item in dateList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+            <span>多少天可用</span>
           </li>
         </ul>
+        <p><Checkbox v-model="single">我已同意</Checkbox><span>《商家自营销协议》</span></p>
+      </Modal>
+      <Modal
+        v-model="reportMalicious"
+        title="可举报的恶意营销"
+        okText="继续举报"
+        @on-ok="ok"
+        class-name="vertical-center-modal modal-report-malicious"
+      >
+       <div>
+         <a href="javascript">以差评谋求不正当得利</a>
+         <a href="javascript">广告或垃圾信息</a>
+         <a href="javascript">同行恶意评价</a>
+         <a href="javascript">存在不文明用语</a>
+         <a href="javascript">敏感或违法信息</a>
+         <a href="javascript">隐私泄露</a>
+       </div>
+       <p>只有以上类型的恶意评价可以举报，如滥用举报，将影响您的商家排名</p>
       </Modal>
     </div>
   </div>
@@ -94,6 +121,22 @@
         satisfaction:'全部',//满意程度默认值
         content:'全部',//有无内容默认值
         sendTicket:false,//发券模态框
+        single:false,//是否同意《商家自营销协议》
+        reportMalicious:false,//举报恶意营销模板
+        dateList: [
+          {
+            value: 'shitian',
+            label: '10天'
+          },
+          {
+            value: 'ershitian',
+            label: '20天'
+          },
+          {
+            value: 'sanshitian',
+            label: '30天'
+          }
+        ],//用户角色列表
         columns1: [
           {
             title: '下单用户',
@@ -193,7 +236,7 @@
               return h('p',[
                 h('a',{
                   attrs:{
-                    href:'/home'
+//                    href:'/home'
                   }
                 },'回复'),
                 h('a',{
@@ -205,7 +248,12 @@
                 },'发券'),
                 h('a',{
                   attrs:{
-                    href:'/home'
+//                    href:'/home'
+                  },
+                  on: {
+                    click: () => {
+                      this.reportMalicious=true;
+                    }
                   }
                 },'举报')
               ])
@@ -242,11 +290,9 @@
       }
     },
     methods: {
-//      sendTicket () {
-//        this.$Modal.confirm({
-//          okText: '立即发券',
-//        });
-//      },
+      ok () {
+        this.$router.push({path:'/report'});
+      },
     }
   }
 
@@ -276,12 +322,10 @@
       font-weight: normal;
     }
   }
-  .modal-send-ticket{
+  .modal-send-ticket,.modal-report-malicious{
     .ivu-modal{
       width:600px !important;
     }
-  }
-  .modal-send-ticket{
     .ivu-modal-footer{
       border-top:none;
       .ivu-btn-large{
@@ -298,6 +342,8 @@
         }
       }
     }
+  }
+  .modal-send-ticket{
     .ivu-modal-body{
       padding: 0;
       margin: 0 20px;
@@ -305,11 +351,57 @@
       >ul{
         >li{
           margin: 0 0 16px 11px;
-          >label{
-            @include sc(14px,#333);
+          &:nth-child(1),&:nth-child(2),&:nth-child(3){
+            >label{
+              display: inline-block;
+              vertical-align: middle;
+              @include sc(14px,#333);
+              width:85px;
+              margin-right:24px;
+              text-align: right;
+              >em{
+                @include sc(14px,#333);
+                margin-left: 10px;
+              }
+            }
+          }
+          &:nth-child(4){
+            >label{
+              display: inline-block;
+              vertical-align: middle;
+              @include sc(14px,#333);
+              width:167px;
+              margin-right: 24px;
+              >em{
+                @include sc(14px,#333);
+                margin-left: 10px;
+              }
+            }
+            .ivu-select{
+              width:217px !important;
+              height:40px;
+              .ivu-select-selection{
+                border-radius: 0;
+                height:40px;
+                .ivu-select-selected-value{
+                  height:40px;
+                  line-height: 40px;
+                  @include sc(14px,#333);
+                  padding-left: 16px;
+                }
+              }
+              .ivu-select-placeholder{
+                height:40px;
+                line-height: 40px;
+                @include sc(14px,#999);
+              }
+            }
+          }
+          >span{
             display: inline-block;
-            width:85px;
-            margin-right:24px;
+            vertical-align: middle;
+            @include sc(14px,#333);
+            margin-left: 13px;
           }
           .ivu-input-wrapper{
             @include wh(300px,40px);
@@ -317,26 +409,13 @@
               @include wh(300px,40px);
               border-radius: 0;
               padding-left: 16px;
+              @include sc(14px,#333);
             }
             .ivu-input::placeholder{
               @include sc(14px,#999);
             }
             .ivu-input:focus{
               box-shadow:none;
-            }
-          }
-          .ivu-select{
-            width:300px !important;
-            height:40px;
-            .ivu-select-selection{
-              border-radius: 0;
-              height:40px;
-              .ivu-select-selected-value{
-                height:40px;
-                line-height: 40px;
-                @include sc(14px,#333);
-                padding-left: 16px;
-              }
             }
           }
           .ivu-radio-group{
@@ -348,11 +427,50 @@
               }
             }
           }
-          &:last-child{
-            margin: 12px 0 30px 11px;
-          }
         }
       }
+      >p{
+        text-align: center;
+        line-height: 14px;
+        margin: 30px 0 26px 0;
+        >label{
+          @include sc(14px,#333);
+          >span{
+            margin-right: 8px;
+          }
+        }
+        >span{
+          @include sc(14px,#0080ff);
+        }
+      }
+    }
+  }
+  .modal-report-malicious{
+    .ivu-modal-body{
+      padding: 0;
+      margin: 0 20px;
+      border-bottom: 1px solid #e3e3e3;
+     >div{
+       margin: 20px 0;
+       >a{
+         @include sc(14px,#666);
+         height:28px;
+         line-height: 28px;
+         border:1px solid #e3e3e3;
+         display: inline-block;
+         padding: 0 21px;
+         margin: 0 8px 20px 0;
+       }
+     }
+    >p{
+      height:60px;
+      line-height: 60px;
+      background-color: rgba(254, 245, 236, 1);
+      border: solid 1px rgba(254, 199, 169, 1);
+      padding-left: 40px;
+      @include sc(14px,#666);
+      margin-bottom: 30px;
+    }
     }
   }
   .customer-evaluation{

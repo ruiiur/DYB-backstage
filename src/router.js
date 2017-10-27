@@ -30,6 +30,8 @@ const upload = r => require.ensure([], () => r(require('@/pages/goods/upload-pic
 const account = r => require.ensure([], () => r(require('@/pages/system/account-setting.vue')), 'account');
 //顾客评价
 const evaluation = r => require.ensure([], () => r(require('@/pages/after-sale/customer-evaluation.vue')), 'evaluation');
+//恶意评价举报
+const report = r => require.ensure([], () => r(require('@/pages/after-sale/report-malicious.vue')), 'report');
 //平台活动
 const platform = r => require.ensure([], () => r(require('@/pages/marketing/platform-activity.vue')), 'platform');
 //店铺活动
@@ -73,7 +75,10 @@ const router = new VueRouter({
         //账号设置
         { path: '/account', component: account },
         //顾客评价
-        { path: '/evaluation', component: evaluation },
+        { path: '/evaluation', component: evaluation ,
+        },
+        //恶意评价举报
+        { path: '/report', component: report },
         //平台活动
         { path: '/platform', component: platform },
         //店铺活动
