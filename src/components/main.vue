@@ -9,7 +9,7 @@
             <i class="menu-toggle menu-toggle-left"  @click="toggleClick" v-if="toggle"></i>
           </div>
           <Submenu name="home">
-            <template slot="title">
+            <template slot="title" ref="home">
               <i class="ivu-icon ivu-icon-ios-analytics icon-home" ></i>
               <a class="layout-text home-title" href="#/home">商家首页</a>
             </template>
@@ -58,7 +58,8 @@
               <i class="ivu-icon ivu-icon-ios-analytics icon-after-sale"></i>
               <span class="layout-text">售后管理</span>
             </template>
-            <MenuItem name="evaluation">顾客评价</MenuItem>
+            <MenuItem name="evaluation" ref="report">顾客评价</MenuItem>
+            <MenuItem name="report" style="display:none;">举报恶意评价</MenuItem>
           </Submenu>
           <Submenu name="7">
             <template slot="title">
@@ -66,7 +67,9 @@
               <span class="layout-text">营销活动</span>
             </template>
             <MenuItem name="platform">平台活动</MenuItem>
-            <MenuItem name="storeA">店铺活动</MenuItem>
+            <MenuItem name="storeA" ref="dis">店铺活动</MenuItem>
+            <MenuItem name="discount" style="display:none;">折扣商品</MenuItem>
+            <MenuItem name="precision" style="display:none;">精准营销</MenuItem>
           </Submenu>
         </Menu>
       </i-col>
@@ -173,6 +176,15 @@
       routeTo(e) {
         this.$router.push(e);
       }
+    },
+    beforeRouteUpdate (to, from, next) {
+      if (to.path =="/report") {
+        this.$refs.report.$el.style.color='#0080ff';
+      }
+      if (to.path =="/discount" || to.path =="/precision") {
+        this.$refs.dis.$el.style.color='#0080ff';
+      }
+      next();
     }
   }
 

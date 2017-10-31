@@ -8,7 +8,6 @@
           <Modal
             v-model="addAccount"
             title="添加子账号"
-            @on-ok="ok"
             class-name="vertical-center-modal modal-add-account"
           >
            <ul>
@@ -48,7 +47,6 @@
           <Modal
             v-model="accountCode"
             title="子账号绑定二维码"
-            @on-ok="ok"
             class-name="vertical-center-modal modal-account-code"
           >
             <div><img src="../../assets/image/spgl_erweima.png"></div>

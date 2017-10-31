@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="login-content">
         <div>
             <p class="login-header">
                <img src="../../assets/image/KFlogo.png"><span>商家中心</span>
@@ -412,424 +412,423 @@
   }
 </script>
 <style  lang="scss">
-.ivu-form-inline .ivu-form-item {
-  display: block;
-  vertical-align: top;
-}
-.form-content{
-  padding-top: 6px;
-}
-.ivu-input {
-  display: block;
-  height:40px ;
-  border-radius: 0;
-  padding-left: 41px;
-  padding-right: 26px;
-  @include sc(14px,#333);
-  border:1px solid #ccc;
-}
-.ivu-input:focus{
-  box-shadow:none;
-}
-.tel-input{
-  padding-left: 34px !important;
-}
-.code-input{
-  @include wh(164px,40px);
-  /*height:40px;*/
-  padding-left: 12px;
-  border:1px solid #ccc;
-  @include sc(14px,#333);
-}
-.code-input::placeholder{
-  @include sc(14px,#a9a9a9);
-}
-.tip-content{
-  position: relative;
-  .tip{
-    @include wh(340px,40px);
-    @include sc(14px,#666);
-    margin:12px 30px 0 30px;
-    background-color: rgba(255, 246, 236, 1);
-    border: solid 1px rgba(255, 200, 178, 1);
-    line-height: 40px;
-    padding-left: 41px;
-  }
-  .tip-icon{
-    @include pos(absolute,26px,0,0,42px,auto);
-    @include icon(inline-block,12px,12px);
-    @include bis(url('../../assets/image/login_mistake.png'),no-repeat,12px,12px);
-  }
-}
-.ivu-form-inline .ivu-form-item {
-  margin-right: 30px;
-}
-.user-icon{
-  @include icon(inline-block,17px,16px);
-  @include bis(url('../../assets/image/login_user name_icon.png'),no-repeat,17px,16px);
-  @include pos(absolute,11px,0,0,12px,1);
-}
-.password-icon{
-  @include icon(inline-block,13px,16px);
-  @include bis(url('../../assets/image/login_password_icon.png'),no-repeat,13px,16px);
-  @include pos(absolute,11px,0,0,12px,1);
-}
-.user-clear,.password-clear,.tel-clear{
-  @include icon(inline-block,12px,12px);
-  @include bis(url('../../assets/image/login_clear.png'),no-repeat,12px,12px);
-  @include pos(absolute,14px,14px,auto,auto,1);
-}
-.code-clear{
-  @include icon(inline-block,12px,12px);
-  @include bis(url('../../assets/image/login_clear.png'),no-repeat,12px,12px);
-  @include pos(absolute,14px,auto,auto,137px,1);
-}
-.code-clear-s{
-  left:127px;
-}
-.tel-icon{
-  @include icon(inline-block,10px,16px);
-  @include bis(url('../../assets/image/login_phone nomber_icon.png'),no-repeat,10px,16px);
-  @include pos(absolute,11px,0,0,12px,1);
-}
-.location-icon{
-  @include icon(inline-block,14px,18px);
-  @include bis(url('../../assets/image/login_adress_icon.png'),no-repeat,14px,18px);
-  @include pos(absolute,11px,0,0,12px,1);
-}
-.ivu-form-item{
-  margin: 12px 30px;
-}
-.ivu-input-wrapper {
-  display: block;
-  @include  wh(340px,40px);
-}
-.login-header{
-  height:80px;
-  >img{
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 20%;
-    @include wh(92px,43px);
-    margin-top: 14px;
-  }
-  >span{
-    @include sc(24px,#0086ff);
-    line-height: 80px;
-    margin-left: 16px;
-  }
-}
-.login-main{
-  @include wh(100%,calc((100vh - 80px)/3.6*2.6));
-  min-width: 700px !important;
-  background: url('../../assets/image/login_bg .png') no-repeat center;
-  background-size: cover;
-  text-align: center;
-  &.forget{
-    background: url('../../assets/image/login_forget_bg.png') no-repeat center;
-    background-size: cover;
-  }
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-  }
-  .content-main{
-    display: inline-block;
-    vertical-align: middle;
-    margin: auto;
-    background: #fff;
-    text-align: left;
-    box-shadow:0 0 32px rgba(0,128,255,.2);
-    border-radius: 4px;
-    &.bor{
-      border-radius: 0 0 4px 4px;
+  .login-content{
+    .ivu-form-inline .ivu-form-item {
+      display: block;
+      vertical-align: top;
     }
-    &.bot{
-      padding-bottom: 53px;
+    .form-content{
+      padding-top: 6px;
     }
-    .login-choose{
-      /*text-align: center;*/
-      margin-top: 22px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid #e3e3e3;
-      >a{
-        display: inline-block;
-        width:50%;
-        @include sc(18px,#666);
-        line-height: 16px;
-        &.active{
-          color:#0086ff;
-        }
-        &:nth-child(1){
-          border-right: 1px solid #e3e3e3;
-          text-align: right;
-          padding-right: 30px;
-          box-sizing: border-box;
-        }
-        &:nth-child(2){
-          padding-left: 30px;
-        }
-      }
+    .ivu-input {
+      display: block;
+      height:40px ;
+      border-radius: 0;
+      padding-left: 41px;
+      padding-right: 26px;
+      @include sc(14px,#333);
+      border:1px solid #ccc;
     }
-    .login-footer{
-      padding: 6px 30px 43px 30px;
-      >a{
-        color:#0086ff;
-        &:nth-child(2){
-          float: right;
-        }
-        &:hover{
-          text-decoration: underline;
-        }
-      }
+    .ivu-input:focus{
+      box-shadow:none;
     }
-  }
-}
-.login-bottom{
-  >p{
-    text-align: center;
-    @include sc(12px,#acacac);
-    line-height: 12px;
-    &:nth-child(1){
-      margin-top: 30px;
-    }
-    &:nth-child(2){
-      margin: 8px auto;
-    }
-  }
-}
- .ivu-input::-webkit-input-placeholder{
-  @include sc(14px,#999);
-}
-.ivu-btn {
-  padding: 8.5px 155px;
-  font-size: 14px;
-  border-radius: 0;
-}
-.sendSmsBtn{
-  float: right;
-  line-height: 40px;
-  background: #e5e5e5;
-  border: 1px solid #d9d9d9;
-  display: inline-block;
-  @include sc(14px,#666);
-  @include wh(164px,40px);
-  &.dissendSmsBtn{
-    /*background: #d9d9d9;*/
-    color:#a9a9a9;
-  }
-}
-.sendSmsBtnF{
-  /*float: right;*/
-  line-height: 22px;
-  background: #fff;
-  border: 1px solid #0086ff;
-  display: inline-block;
-  border-radius: 2px;
-  @include sc(12px,#0086ff);
-  @include wh(72px,22px);
-  margin-left: 12px;
-  &.dissendSmsBtn{
-    color:#0086ff;
-    opacity: 0.8;
-    width:77px !important;
-  }
-}
-.register-title{
-  @include wh(100%,50px);
-  line-height: 50px;
-  @include sc(18px,#0086ff);
-  text-align: center;
-  border-bottom: 1px solid #e3e3e3;
-}
-  .reset-steps{
-    display: block;
-    height:38px;
-    padding: 60px 0 30px 0;
-    margin: 0 100px;
-    >li{
-      float: left;
-      &:nth-child(odd){
-        @include wh(38px,38px);
-        line-height: 38px;
-        background-color: #f4f4f4;
-        border:1px solid #dbdbdb;
-        box-sizing: border-box;
-        &.active{
-          background-image: linear-gradient(-90deg,
-            rgba(0, 137, 255, 1) 0%,
-            rgba(0, 128, 255, 1) 100%),
-          linear-gradient(
-              rgba(255, 255, 255, 1),
-              rgba(255, 255, 255, 1));
-          background-blend-mode: normal,
-          normal;
-          @include sc(18px,#fff);
-          border:none;
-        }
-        @include sc(18px,#a9a9a9);
-        border-radius: 50%;
-        text-align: center;
-      }
-      &:nth-child(even){
-        @include wh(110px,1px);
-        background: #dbdbdb;
-        margin-top: 18.5px;
-        &.active{
-          background: #0086ff;
-        }
-      }
-    }
-  }
-  .reset-process{
-    clear: both;
-    display: block;
-    height:12px;
-    margin-top: 35px;
-    >li{
-      float:left;
-      @include sc(12px,#666);
-      &:nth-child(1){
-        margin-left: 88px;
-      }
-     &:nth-child(2),&:nth-child(3){
-        margin-left: 85px;
-      }
-      &:nth-child(4){
-        margin-left: 100px;
-      }
-    }
-  }
-  .step-account, .step-tel,.step-reset{
-    width:682px;
-    box-sizing: border-box;
-    text-align: right;
-    .ivu-form-item{
-      margin: 0 0 24px 0;
-    }
-  }
-  .step-account{
-    padding-right: 151px;
-    margin-top: 53px;
-  }
-  .step-tel{
-    padding-right: 175px;
-    margin-top: 64px;
-    .ivu-input-wrapper{
-      width:315px;
-    }
-    >p{
-      width:315px;
-      display: inline-block;
-      @include sc(14px,#666);
-      text-align: left;
-      margin-bottom: 12px;
+    .tel-input{
+      padding-left: 34px !important;
     }
     .code-input{
-      width:150px;
-    }
-    .sendSmsBtn{
-      width:150px;
-      margin-left: 15px;
-    }
-    .but-w{
-      margin: 0 174px 46px auto;
-    }
-  }
-  .step-reset{
-    padding-right: 144px;
-    margin-top: 53px;
-  }
-  .step-complete{
-    padding: 133px 146px 133px 196px;
-    >img{
-      @include wh(54px,54px);
-    }
-    >span{
-      display: inline-block;
-      vertical-align: top;
-      line-height: 24px;
-      @include sc(24px,#34cd64);
-      margin: 15px 29px 0 25px;
-    }
-    >a{
-      display: inline-block;
-      vertical-align: top;
-      line-height: 18px;
-      @include sc(18px,#0086ff);
-      margin-top: 18px;
-    }
-  }
-.ivu-input-wrapper-repeat{
-  display: inline-block;
-  >img{
-    position: absolute;
-    top:0;
-    right:0;
-  }
-}
-.ivu-input-repeat{
-  padding-left: 12px;
-}
-.ivu-form-item .ivu-form-item-label{
-  @include sc(14px,#666);
-  width:190px;
-  padding: 13px 12px 13px 0;
-  text-align: right;
-}
-.ivu-input-w{
-  width:249px;
-}
-.but-w{
-  width:141px;
-  text-align: center;
-  padding: 8.5px 0;
-  border-radius:2px;
-  margin: -3px 199px 46px auto;
-}
-  .first-title{
-    @include sc(14px,#666);
-    margin: 15px auto 15px 20px;
-  }
-  .first-login-instruction{
-    background-color: rgba(255, 255, 0, 0.1);
-    padding: 14px 21px 21px 20px;
-    >p{
-      @include sc(14px,#666);
-      line-height: 20px;
-      width:589px;
-    }
-  }
-  .first-login-information{
-    text-align: center;
-    padding-top: 20px;
-    >p{
+      @include wh(164px,40px);
+      /*height:40px;*/
+      padding-left: 12px;
+      border:1px solid #ccc;
       @include sc(14px,#333);
-      &:nth-child(2){
-        margin: 10px auto 6px auto;
+    }
+    .code-input::placeholder{
+      @include sc(14px,#a9a9a9);
+    }
+    .tip-content{
+      position: relative;
+      .tip{
+        @include wh(340px,40px);
+        @include sc(14px,#666);
+        margin:12px 30px 0 30px;
+        background-color: rgba(255, 246, 236, 1);
+        border: solid 1px rgba(255, 200, 178, 1);
+        line-height: 40px;
+        padding-left: 41px;
+      }
+      .tip-icon{
+        @include pos(absolute,26px,0,0,42px,auto);
+        @include icon(inline-block,12px,12px);
+        @include bis(url('../../assets/image/login_mistake.png'),no-repeat,12px,12px);
       }
     }
-    border-bottom:1px solid #e3e3e3;
+    .ivu-form-inline .ivu-form-item {
+      margin-right: 30px;
+    }
+    .user-icon{
+      @include icon(inline-block,17px,16px);
+      @include bis(url('../../assets/image/login_user name_icon.png'),no-repeat,17px,16px);
+      @include pos(absolute,11px,0,0,12px,1);
+    }
+    .password-icon{
+      @include icon(inline-block,13px,16px);
+      @include bis(url('../../assets/image/login_password_icon.png'),no-repeat,13px,16px);
+      @include pos(absolute,11px,0,0,12px,1);
+    }
+    .user-clear,.password-clear,.tel-clear{
+      @include icon(inline-block,12px,12px);
+      @include bis(url('../../assets/image/login_clear.png'),no-repeat,12px,12px);
+      @include pos(absolute,14px,14px,auto,auto,1);
+    }
+    .code-clear{
+      @include icon(inline-block,12px,12px);
+      @include bis(url('../../assets/image/login_clear.png'),no-repeat,12px,12px);
+      @include pos(absolute,14px,auto,auto,137px,1);
+    }
+    .code-clear-s{
+      left:127px;
+    }
+    .tel-icon{
+      @include icon(inline-block,10px,16px);
+      @include bis(url('../../assets/image/login_phone nomber_icon.png'),no-repeat,10px,16px);
+      @include pos(absolute,11px,0,0,12px,1);
+    }
+    .location-icon{
+      @include icon(inline-block,14px,18px);
+      @include bis(url('../../assets/image/login_adress_icon.png'),no-repeat,14px,18px);
+      @include pos(absolute,11px,0,0,12px,1);
+    }
+    .ivu-form-item{
+      margin: 12px 30px;
+    }
+    .ivu-input-wrapper {
+      display: block;
+      @include  wh(340px,40px);
+    }
+    .login-header{
+      height:80px;
+      >img{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 20%;
+        @include wh(92px,43px);
+        margin-top: 14px;
+      }
+      >span{
+        @include sc(24px,#0086ff);
+        line-height: 80px;
+        margin-left: 16px;
+      }
+    }
+    .login-main{
+      @include wh(100%,calc((100vh - 80px)/3.6*2.6));
+      min-width: 700px !important;
+      background: url('../../assets/image/login_bg .png') no-repeat center;
+      background-size: cover;
+      text-align: center;
+      &.forget{
+        background: url('../../assets/image/login_forget_bg.png') no-repeat center;
+        background-size: cover;
+      }
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      .content-main{
+        display: inline-block;
+        vertical-align: middle;
+        margin: auto;
+        background: #fff;
+        text-align: left;
+        box-shadow:0 0 32px rgba(0,128,255,.2);
+        border-radius: 4px;
+        &.bor{
+          border-radius: 0 0 4px 4px;
+        }
+        &.bot{
+          padding-bottom: 53px;
+        }
+        .login-choose{
+          /*text-align: center;*/
+          margin-top: 22px;
+          padding-bottom: 22px;
+          border-bottom: 1px solid #e3e3e3;
+          >a{
+            display: inline-block;
+            width:50%;
+            @include sc(18px,#666);
+            line-height: 16px;
+            &.active{
+              color:#0086ff;
+            }
+            &:nth-child(1){
+              border-right: 1px solid #e3e3e3;
+              text-align: right;
+              padding-right: 30px;
+              box-sizing: border-box;
+            }
+            &:nth-child(2){
+              padding-left: 30px;
+            }
+          }
+        }
+        .login-footer{
+          padding: 6px 30px 43px 30px;
+          >a{
+            color:#0086ff;
+            &:nth-child(2){
+              float: right;
+            }
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    .login-bottom{
+      >p{
+        text-align: center;
+        @include sc(12px,#acacac);
+        line-height: 12px;
+        &:nth-child(1){
+          margin-top: 30px;
+        }
+        &:nth-child(2){
+          margin: 8px auto;
+        }
+      }
+    }
+    .ivu-input::-webkit-input-placeholder{
+      @include sc(14px,#999);
+    }
+    .ivu-btn {
+      padding: 8.5px 155px;
+      font-size: 14px;
+      border-radius: 0;
+    }
+    .sendSmsBtn{
+      float: right;
+      line-height: 40px;
+      background: #e5e5e5;
+      border: 1px solid #d9d9d9;
+      display: inline-block;
+      @include sc(14px,#666);
+      @include wh(164px,40px);
+      &.dissendSmsBtn{
+        /*background: #d9d9d9;*/
+        color:#a9a9a9;
+      }
+    }
+    .sendSmsBtnF{
+      /*float: right;*/
+      line-height: 22px;
+      background: #fff;
+      border: 1px solid #0086ff;
+      display: inline-block;
+      border-radius: 2px;
+      @include sc(12px,#0086ff);
+      @include wh(72px,22px);
+      margin-left: 12px;
+      &.dissendSmsBtn{
+        color:#0086ff;
+        opacity: 0.8;
+        width:77px !important;
+      }
+    }
+    .register-title{
+      @include wh(100%,50px);
+      line-height: 50px;
+      @include sc(18px,#0086ff);
+      text-align: center;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    .reset-steps{
+      display: block;
+      height:38px;
+      padding: 60px 0 30px 0;
+      margin: 0 100px;
+      >li{
+        float: left;
+        &:nth-child(odd){
+          @include wh(38px,38px);
+          line-height: 38px;
+          background-color: #f4f4f4;
+          border:1px solid #dbdbdb;
+          box-sizing: border-box;
+          &.active{
+            background-image: linear-gradient(-90deg,
+              rgba(0, 137, 255, 1) 0%,
+              rgba(0, 128, 255, 1) 100%),
+            linear-gradient(
+                rgba(255, 255, 255, 1),
+                rgba(255, 255, 255, 1));
+            background-blend-mode: normal,
+            normal;
+            @include sc(18px,#fff);
+            border:none;
+          }
+          @include sc(18px,#a9a9a9);
+          border-radius: 50%;
+          text-align: center;
+        }
+        &:nth-child(even){
+          @include wh(110px,1px);
+          background: #dbdbdb;
+          margin-top: 18.5px;
+          &.active{
+            background: #0086ff;
+          }
+        }
+      }
+    }
+    .reset-process{
+      clear: both;
+      display: block;
+      height:12px;
+      margin-top: 35px;
+      >li{
+        float:left;
+        @include sc(12px,#666);
+        &:nth-child(1){
+          margin-left: 88px;
+        }
+        &:nth-child(2),&:nth-child(3){
+          margin-left: 85px;
+        }
+        &:nth-child(4){
+          margin-left: 100px;
+        }
+      }
+    }
+    .step-account, .step-tel,.step-reset{
+      width:682px;
+      box-sizing: border-box;
+      text-align: right;
+      .ivu-form-item{
+        margin: 0 0 24px 0;
+      }
+    }
+    .step-account{
+      padding-right: 151px;
+      margin-top: 53px;
+    }
+    .step-tel{
+      padding-right: 175px;
+      margin-top: 64px;
+      .ivu-input-wrapper{
+        width:315px;
+      }
+      >p{
+        width:315px;
+        display: inline-block;
+        @include sc(14px,#666);
+        text-align: left;
+        margin-bottom: 12px;
+      }
+      .code-input{
+        width:150px;
+      }
+      .sendSmsBtn{
+        width:150px;
+        margin-left: 15px;
+      }
+      .but-w{
+        margin: 0 174px 46px auto;
+      }
+    }
+    .step-reset{
+      padding-right: 144px;
+      margin-top: 53px;
+    }
+    .step-complete{
+      padding: 133px 146px 133px 196px;
+      >img{
+        @include wh(54px,54px);
+      }
+      >span{
+        display: inline-block;
+        vertical-align: top;
+        line-height: 24px;
+        @include sc(24px,#34cd64);
+        margin: 15px 29px 0 25px;
+      }
+      >a{
+        display: inline-block;
+        vertical-align: top;
+        line-height: 18px;
+        @include sc(18px,#0086ff);
+        margin-top: 18px;
+      }
+    }
+    .ivu-input-wrapper-repeat{
+      display: inline-block;
+      >img{
+        position: absolute;
+        top:0;
+        right:0;
+      }
+    }
+    .ivu-input-repeat{
+      padding-left: 12px;
+    }
+    .ivu-form-item .ivu-form-item-label{
+      @include sc(14px,#666);
+      width:190px;
+      padding: 13px 12px 13px 0;
+      text-align: right;
+    }
+    .ivu-input-w{
+      width:249px;
+    }
+    .but-w{
+      width:141px;
+      text-align: center;
+      padding: 8.5px 0;
+      border-radius:2px;
+      margin: -3px 199px 46px auto;
+    }
+    .first-title{
+      @include sc(14px,#666);
+      margin: 15px auto 15px 20px;
+    }
+    .first-login-instruction{
+      background-color: rgba(255, 255, 0, 0.1);
+      padding: 14px 21px 21px 20px;
+      >p{
+        @include sc(14px,#666);
+        line-height: 20px;
+        width:589px;
+      }
+    }
+    .first-login-information{
+      text-align: center;
+      padding-top: 20px;
+      >p{
+        @include sc(14px,#333);
+        &:nth-child(2){
+          margin: 10px auto 6px auto;
+        }
+      }
+      border-bottom:1px solid #e3e3e3;
+    }
+    .dynamic-code{
+      line-height: 34px;
+      @include wh(270px,34px);
+      border:1px solid #d2d2d2;
+      margin: 14px auto 34px auto;
+      padding-left: 8px;
+    }
+    .dynamic-code::placeholder{
+      @include sc(14px,#a9a9a9);
+    }
+    .first-validation{
+      display:block;
+      border-radius: 2px;
+      padding: 5.5px 16px;
+      margin: 12px auto;
+    }
   }
-  .dynamic-code{
-    line-height: 34px;
-    @include wh(270px,34px);
-    border:1px solid #d2d2d2;
-    margin: 14px auto 34px auto;
-    padding-left: 8px;
-  }
-.dynamic-code::placeholder{
-  @include sc(14px,#a9a9a9);
-}
-  .first-validation{
-    display:block;
-    border-radius: 2px;
-    padding: 5.5px 16px;
-    margin: 12px auto;
-  }
-  /*.code-input-s{*/
-    /*padding-right:140px;*/
-  /*}*/
 </style>

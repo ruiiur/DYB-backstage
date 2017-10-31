@@ -36,6 +36,10 @@ const report = r => require.ensure([], () => r(require('@/pages/after-sale/repor
 const platform = r => require.ensure([], () => r(require('@/pages/marketing/platform-activity.vue')), 'platform');
 //店铺活动
 const storeA = r => require.ensure([], () => r(require('@/pages/marketing/store-activity.vue')), 'storeA');
+//折扣商品
+const discount = r => require.ensure([], () => r(require('@/pages/marketing/discount-goods.vue')), 'discount');
+//精准营销
+const precision = r => require.ensure([], () => r(require('@/pages/marketing/precision-marketing.vue')), 'precision');
 
 const router = new VueRouter({
   routes: [
@@ -82,7 +86,11 @@ const router = new VueRouter({
         //平台活动
         { path: '/platform', component: platform },
         //店铺活动
-        { path: '/storeA', component: storeA }
+        { path: '/storeA', component: storeA },
+        //折扣商品
+        { path: '/discount', component: discount },
+        //精准营销
+        { path: '/precision', component: precision }
       ]
     },
 ]

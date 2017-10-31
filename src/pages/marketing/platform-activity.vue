@@ -95,7 +95,28 @@
           </div>
         </Modal>
       </TabPane>
-      <TabPane label="已参与" name="name2">已参与的内容</TabPane>
+      <TabPane label="已参与" name="name2">
+        <p class="activity-state">
+          <label>活动状态</label>
+          <RadioGroup v-model="activityState">
+            <Radio label="待开始"></Radio>
+            <Radio label="进行中"></Radio>
+            <Radio label="已结束"></Radio>
+          </RadioGroup>
+        </p>
+        <ul class="participate">
+          <li>
+            <h2>新用户立减16<span>活动ID：12545640 进行中 剩余14天</span><a href="javaScript:;">作废活动</a><a href="javaScript:;">查看详情</a></h2>
+            <div>
+              <p>类型:<span>新用户下单（不与其它活动同享）</span></p>
+              <p>规则:<span>新用户下单立减16</span></p>
+              <h3><label>订单不满25</label><a href="javascript:;">平台补贴¥16</a><a class="dis" href="javascript:;">商户补贴¥0</a></h3>
+              <h3><label>订单满25</label><a href="javascript:;">平台补贴¥13</a><a class="dis" href="javascript:;">商户补贴¥0</a></h3>
+              <h3><label>订单不满25</label><a href="javascript:;">平台补贴¥11</a><a class="dis" href="javascript:;">商户补贴¥0</a></h3>
+            </div>
+          </li>
+        </ul>
+      </TabPane>
       <TabPane label="营销托管" name="name3">营销托管的内容</TabPane>
     </Tabs>
     <span>每单可购买活动商品总数：1<a href="javascript:;" @click="availableCopies=true">编辑</a></span>
@@ -125,6 +146,7 @@
         availableCopies:false,//活动商品可售份数设置模态框
         special:false,//是否展开特别说明
         types:'有限制',//每单可享活动商品份数默认值
+        activityState:'进行中',//活动状态默认值
       }
     },
     methods: {
@@ -342,6 +364,7 @@
       margin: 0 20px;
       border-bottom: 1px solid #e3e3e3;
       >p{
+        margin-bottom: 0;
         >label{
           @include sc(14px,#666);
           margin-right: 15px;
@@ -438,6 +461,78 @@
       >a{
         @include sc(14px,#0080ff);
         margin-left: 20px;
+      }
+    }
+    .activity-state{
+      margin-bottom: 38px;
+      >label{
+        @include sc(14px,#333);
+        margin-right: 15px;
+      }
+      .ivu-radio-group{
+        >label{
+          @include sc(14px,#333);
+          margin-right: 30px;
+        }
+      }
+    }
+    .participate{
+      >li{
+        margin-bottom: 20px;
+        background: #fff;
+        box-shadow: 0 0 12px rgba(0, 128, 255, .1);
+        >h2{
+          height:50px;
+          line-height: 50px;
+          background: #fafafa;
+          padding:0 31px 0 21px;
+          @include sc(14px,#333);
+          >span{
+            @include sc(14px,#999);
+            margin-left: 32px;
+          }
+          >a{
+            display: inline-block;
+            float: right;
+            @include sc(14px,#0080ff);
+            margin-left: 21px;
+          }
+        }
+        >div{
+          padding: 20px 0 106px 26px;
+          >p{
+            @include sc(14px,#666);
+            line-height: 14px;
+            margin-bottom: 11px;
+            >span{
+              @include sc(14px,#333);
+            }
+          }
+          >h3{
+            >label{
+              display: inline-block;
+              vertical-align: top;
+              @include sc(14px,#333);
+              width:73px;
+              margin-right: 20px;
+              line-height: 24px;
+            }
+            >a{
+              display: inline-block;
+              @include sc(14px,#666);
+              height:24px;
+              line-height: 23px;
+              border:1px solid #ccc;
+              width:100px;
+              text-align: center;
+              margin-right: 8px;
+              margin-bottom: 10px;
+              &.dis{
+               opacity: .5;
+              }
+            }
+          }
+        }
       }
     }
   }
